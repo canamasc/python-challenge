@@ -20,7 +20,8 @@ minp_month = ""
 
 with open(filename, 'r') as file:
     reader = csv.reader(file)
-    
+    # Store header row
+    header = next(reader)
     for row in reader:
         counter += 1
         if counter == 2:
