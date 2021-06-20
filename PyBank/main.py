@@ -14,11 +14,18 @@ counter = 0
 # max  increase in profits
 maxp = 0
 maxp_month = ""
+# max decrease in profits
+minp = 0
+minp_month = ""
 
 with open(filename, 'r') as file:
     reader = csv.reader(file)
+    
     for row in reader:
         counter += 1
+        if counter == 2:
+            maxp = int(row[1])
+            minp = int(row[1])
         # Ignore header row
         if counter > 1:
             numMonths += 1
@@ -30,6 +37,9 @@ with open(filename, 'r') as file:
             if (changetemp > maxp):
                 maxp = changetemp
                 maxp_month = row[0]
+            if (changetemp < minp):
+                minp = changetemp
+                minp_month = row[0]
             #print(changetemp)
         prev = row
 
@@ -42,4 +52,5 @@ anal.write("\nTotal Months: " + str(numMonths))
 anal.write("\nTotal: $" + str(netTotal))
 anal.write("\nAverage Change: $" + str(avgChange))
 anal.write("\nGreatest Increase in Profits: "+ maxp_month + " ($" + str(maxp) + ")")
+anal.write("\nGreatest Decrease in Profits: "+ minp_month + " ($" + str(minp) + ")")
 anal.close()
