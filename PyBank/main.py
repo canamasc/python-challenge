@@ -34,13 +34,14 @@ with open(filename, 'r') as file:
         if counter > 2:
             changetemp = (int(row[1]) - int(prev[1]))
             changes.append(changetemp)
+            # Find max increase and decrease 
             if (changetemp > maxp):
                 maxp = changetemp
                 maxp_month = row[0]
             if (changetemp < minp):
                 minp = changetemp
                 minp_month = row[0]
-            #print(changetemp)
+        # prev always points to row above
         prev = row
 
 avgChange = round((sum(changes) / len(changes)),2)
@@ -54,3 +55,11 @@ anal.write("\nAverage Change: $" + str(avgChange))
 anal.write("\nGreatest Increase in Profits: "+ maxp_month + " ($" + str(maxp) + ")")
 anal.write("\nGreatest Decrease in Profits: "+ minp_month + " ($" + str(minp) + ")")
 anal.close()
+
+#Print findings to terminal
+print("Financial Analysis \n_________________________________________________________ \n")
+print("\nTotal Months: " + str(numMonths))
+print("\nTotal: $" + str(netTotal))
+print("\nAverage Change: $" + str(avgChange))
+print("\nGreatest Increase in Profits: "+ maxp_month + " ($" + str(maxp) + ")")
+print("\nGreatest Decrease in Profits: "+ minp_month + " ($" + str(minp) + ")")
