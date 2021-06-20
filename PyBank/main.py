@@ -4,6 +4,8 @@ filename = 'C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank
 
 numMonths = 0
 netTotal = 0
+changes = []
+changetemp = 0
 avgChange = 0
 counter = 0
 with open(filename, 'r') as file:
@@ -13,9 +15,13 @@ with open(filename, 'r') as file:
         if counter > 1:
             numMonths += 1
             netTotal += int(row[1])
+        if counter > 2:
+            changetemp = (int(row[1]) - int(prev[1]))
+            changes.append(changetemp)
+            print(changetemp)
+        prev = row
 
-
-avgChange = netTotal / numMonths
+avgChange = sum(changes) / len(changes)
 
 anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank/analysis/financial_analysis.txt", "w")
 anal.write("Financial Analysis \n_________________________________________________________ \n")
