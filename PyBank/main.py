@@ -24,9 +24,9 @@ with open(filename, 'r') as file:
     header = next(reader)
     for row in reader:
         counter += 1
-        if counter == 1:
-            maxp = int(row[1])
-            minp = int(row[1])
+        if counter == 2:
+            maxp = int(row[1]) - int(prev[1])
+            minp = int(row[1]) - int(prev[1])
         # Ignore header row
         if counter > 0:
             numMonths += 1
