@@ -2,6 +2,15 @@
 Georgia Tech Data Science Bootcamp
 
 PyBank:
+- PLAIN ENGLISH:
+- Given a file of financial records (Date, P/L), return the following:
+- Total # months
+- Net total P/L
+- Average monthly P/L
+- Date/amount of greatest profit increase
+- Date/amount of greatest profit decrease
+
+PSEUDOCODE:
 - Open csv file in read only mode.
 - Save header row
 - Loop through all rows in csv file (excluding header)
@@ -16,6 +25,15 @@ PyBank:
  
  
  PyPoll:
+ - PLAIN ENGLISH:
+- Given a file of election data (voter ID, County, Candidate), return the following:
+- Total # votes
+- List of candidates
+- % of votes won for each candidate
+- absolute number of votes for each candidate
+- Winner, based on popular vote
+ 
+ PSEUDOCODE:
  - Open csv file in read only mode.
 - Save header row
 - Loop through all rows in csv file (excluding header)
