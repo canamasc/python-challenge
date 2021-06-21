@@ -21,10 +21,29 @@ with open(filename, 'r') as file:
             val += 1
             cand_d.update({row[2] : val})
 
+# Once we have total vote counts, get % of total vote for each candidate
+# % calc only needs total votes and cand_d values, so can compute this in print statement
 
 # Print Results to terminal
 print("Election Results \n_________________________________________________________ \n")
-print("\nTotal Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
+print("Total Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
 # Loop through candidate keys and print voter results
 for key in cand_d:
-    print(key + " (" + str(cand_d.get(key)) + ")\n")
+    print(key + ": " + str("{:.3f}".format(100*cand_d.get(key)/totalVotes)) + "% (" + str(cand_d.get(key)) + ")\n")
+print("_________________________________________________________")
+# Get key with max value in dicitonary
+# https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+print("\nWinner: " + max(cand_d, key=cand_d.get))
+print("_________________________________________________________")
+
+
+# Write  analysis text file
+anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/analysis/election_results.txt", "w")
+anal.write("Election Results \n_________________________________________________________ \n")
+anal.write("\nTotal Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
+for key in cand_d:
+    anal.write(key + ": " + str("{:.3f}".format(100*cand_d.get(key)/totalVotes)) + "% (" + str(cand_d.get(key)) + ")\n")
+anal.write("_________________________________________________________")
+anal.write("\nWinner: " + max(cand_d, key=cand_d.get))
+anal.write("\n_________________________________________________________")
+anal.close()
