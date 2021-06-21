@@ -28,6 +28,7 @@ with open(filename, 'r') as file:
 print("Election Results \n_________________________________________________________ \n")
 print("Total Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
 # Loop through candidate keys and print voter results
+# for % calc, we are formatting so the result is printed to 3 decimal places. Cast to string so it can print in same line
 for key in cand_d:
     print(key + ": " + str("{:.3f}".format(100*cand_d.get(key)/totalVotes)) + "% (" + str(cand_d.get(key)) + ")\n")
 print("_________________________________________________________")
@@ -38,6 +39,7 @@ print("_________________________________________________________")
 
 
 # Write  analysis text file
+# Logic/syntax is identical to above segment, where we print to terminal
 anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/analysis/election_results.txt", "w")
 anal.write("Election Results \n_________________________________________________________ \n")
 anal.write("\nTotal Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
