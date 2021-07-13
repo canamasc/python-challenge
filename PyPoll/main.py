@@ -1,7 +1,7 @@
 import csv
-
-filename = 'C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/Resources/election_data.csv'
-
+import os
+#filename = 'C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/Resources/election_data.csv'
+filename = os.path.join('Resources', 'election_data.csv')
 totalVotes = 0
 cand_d = {}
 with open(filename, 'r') as file:
@@ -40,7 +40,8 @@ print("_________________________________________________________")
 
 # Write  analysis text file
 # Logic/syntax is identical to above segment, where we print to terminal
-anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/analysis/election_results.txt", "w")
+#anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyPoll/analysis/election_results.txt", "w")
+anal = open("analysis/election_results.txt", "w")
 anal.write("Election Results \n_________________________________________________________ \n")
 anal.write("\nTotal Votes: " + str(totalVotes) + "\n_________________________________________________________ \n")
 for key in cand_d:
