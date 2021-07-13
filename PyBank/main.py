@@ -1,7 +1,8 @@
 import csv
+import os
 
-filename = 'C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank/Resources/budget_data.csv'
-
+#filename = 'C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank/Resources/budget_data.csv'
+filename = os.path.join('Resources', 'budget_data.csv')
 numMonths = 0
 netTotal = 0
 # list of month to month changes
@@ -48,7 +49,8 @@ with open(filename, 'r') as file:
 avgChange = round((sum(changes) / len(changes)),2)
 
 # Write financial analysis text file
-anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank/analysis/financial_analysis.txt", "w")
+#anal = open("C:/Users/cdonnelly.EFCLOCAL/Desktop/Bootcamp/python-challenge/PyBank/analysis/financial_analysis.txt", "w")
+anal = open("analysis/financial_analysis.txt", "w")
 anal.write("Financial Analysis \n_________________________________________________________ \n")
 anal.write("\nTotal Months: " + str(numMonths))
 anal.write("\nTotal: $" + str(netTotal))
